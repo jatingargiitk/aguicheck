@@ -1,0 +1,13 @@
+$ aguicheck run http://127.0.0.1:8765/agent-buggy -m Pune --run-id r1
+http://127.0.0.1:8765/agent-buggy: 11 events, 1 run
+  error #6   TOOL_CALL_ARGS /delta: {"city": "Pune"} is not of type 'string'
+  warn  #8   TOOL_CALL_RESULT /toolCallID: property 'toolCallID' is not in the AG-UI 1.0 schema; the reference client strips it with a warning
+  warn  #10  RUN_FINISHED /outcome: RUN_FINISHED.outcome: null is a pre-1.0 shape, omit the field; the reference client upgrades it with a warning only until 2027-09-17
+  error #10  RUN_FINISHED: Cannot send 'RUN_FINISHED' while text messages are still active: m1
+  transcript:
+    run r1: RUN_FINISHED rejected
+    assistant m1: Checking the weather in Pune.
+    tool call1 get_weather() -> 18C, clear
+    state: {"lookups": 1}
+FAIL: 2 errors, 2 warnings (first at event #6)
+[exit 1]

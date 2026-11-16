@@ -40,7 +40,7 @@ THINKING = {
 def _note(out: List[Finding], what: str, path: str, replacement: str = "omit the field") -> None:
     out.append(Finding(
         WARNING, "deprecated",
-        "%s is a pre-1.0 shape (%s); the reference client upgrades it with a warning only until %s"
+        "%s is a pre-1.0 shape, %s; the reference client upgrades it with a warning only until %s"
         % (what, replacement, SHIM_EXPIRY),
         path=path,
     ))
@@ -82,7 +82,7 @@ class Normalizer:
 
     def _mint(self) -> str:
         self.minted += 1
-        return "aguicheck-minted-%d" % self.minted
+        return "minted-%d" % self.minted
 
     def normalize(self, raw: Dict[str, Any]) -> Tuple[Dict[str, Any], List[Finding]]:
         out: List[Finding] = []
@@ -110,7 +110,7 @@ class Normalizer:
             _messages(ev.get("messages"), "/messages", out)
         if etype in THINKING:
             new = THINKING[etype]
-            _note(out, "event type %s" % etype, "/type", "use " + new)
+            _note(out, etype, "", "use " + new)
             ev["type"] = new
             if etype == "THINKING_START":
                 title = ev.pop("title", None)

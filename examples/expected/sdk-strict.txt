@@ -1,0 +1,9 @@
+$ aguicheck check examples/sdk-0.1.22-thinking.sse --strict --no-transcript
+examples/sdk-0.1.22-thinking.sse: 10 events, 1 run
+  warn  #1   THINKING_START: THINKING_START is a pre-1.0 shape, use REASONING_START; the reference client upgrades it with a warning only until 2027-09-17; its title "Planning" is dropped, REASONING_START has none
+  warn  #2   THINKING_TEXT_MESSAGE_START: THINKING_TEXT_MESSAGE_START is a pre-1.0 shape, use REASONING_MESSAGE_START; the reference client upgrades it with a warning only until 2027-09-17
+  warn  #3   THINKING_TEXT_MESSAGE_CONTENT: THINKING_TEXT_MESSAGE_CONTENT is a pre-1.0 shape, use REASONING_MESSAGE_CONTENT; the reference client upgrades it with a warning only until 2027-09-17
+  warn  #4   THINKING_TEXT_MESSAGE_END: THINKING_TEXT_MESSAGE_END is a pre-1.0 shape, use REASONING_MESSAGE_END; the reference client upgrades it with a warning only until 2027-09-17
+  warn  #5   THINKING_END: THINKING_END is a pre-1.0 shape, use REASONING_END; the reference client upgrades it with a warning only until 2027-09-17
+OK: 0 errors, 5 warnings
+[exit 1]

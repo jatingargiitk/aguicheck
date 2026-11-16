@@ -1,0 +1,9 @@
+$ aguicheck run http://127.0.0.1:8765/agent -m Pune --run-id r1
+http://127.0.0.1:8765/agent: 12 events, 1 run
+  transcript:
+    run r1: finished
+    assistant m1: Checking the weather in Pune.
+    tool call1 get_weather({"city": "Pune"}) -> 18C, clear
+    state: {"lookups": 1}
+OK: 0 errors, 0 warnings
+[exit 0]

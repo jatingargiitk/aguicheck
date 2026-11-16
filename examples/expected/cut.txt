@@ -1,0 +1,5 @@
+$ aguicheck run http://127.0.0.1:8765/agent-cut -m Pune --run-id r1 --no-transcript
+http://127.0.0.1:8765/agent-cut: 8 events, 1 run
+  error end  (end of stream): the stream ended without RUN_FINISHED or RUN_ERROR: a truncated run has no outcome and a client must not report it as succeeded; still open: tool call 'call1'
+FAIL: 1 error, 0 warnings
+[exit 1]
