@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aguicheck"
+version = "0.1.0"
+description = "Check an AG-UI agent's event stream against the 1.0 schema and the sequence rules the reference client enforces"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Jatin Garg" }]
+requires-python = ">=3.9"
+dependencies = ["jsonschema>=4.18"]
+keywords = ["ag-ui", "agents", "sse", "protocol", "conformance", "linter"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Testing",
+]
+
+[project.urls]
+Homepage = "https://github.com/jatingargiitk/aguicheck"
+
+[project.scripts]
+aguicheck = "aguicheck.cli:main"
+
+[tool.setuptools]
+packages = ["aguicheck"]
+
+[tool.setuptools.package-data]
+aguicheck = ["data/*"]
