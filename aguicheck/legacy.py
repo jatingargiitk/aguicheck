@@ -7,6 +7,7 @@ the rest of the checks see what the client sees after its boundary.
 """
 
 import copy
+import json
 from typing import Any, Dict, List, Optional, Tuple
 
 from .findings import WARNING, Finding
@@ -112,7 +113,9 @@ class Normalizer:
             _note(out, "event type %s" % etype, "/type", "use " + new)
             ev["type"] = new
             if etype == "THINKING_START":
-                ev.pop("title", None)
+                title = ev.pop("title", None)
+                if title is not None:
+                    out[-1].message += "; its title %s is dropped, REASONING_START has none" % json.dumps(title)
                 self.reasoning_id = self._mint()
                 ev["messageId"] = self.reasoning_id
             elif etype == "THINKING_TEXT_MESSAGE_START":

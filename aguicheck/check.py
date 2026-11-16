@@ -76,6 +76,8 @@ def check_stream(events: List[Tuple[int, Any]]) -> Result:
                 add(located(Finding(ERROR, "sequence", str(exc)), idx, etype, line))
                 if e.get("type") in ("RUN_FINISHED", "RUN_ERROR"):
                     rejected_terminal.append(idx)
+                    if result.transcript.runs:
+                        result.transcript.runs[-1]["end"] = "%s rejected" % e["type"]
                 continue
             note = result.transcript.apply(e)
             if note and not silent:
@@ -132,5 +134,5 @@ def check_stream(events: List[Tuple[int, Any]]) -> Result:
             ERROR, "truncated",
             "the stream ended without RUN_FINISHED or RUN_ERROR: a truncated run has no outcome and a client must "
             "not report it as succeeded" + ("; still open: " + ", ".join(still_open) if still_open else ""),
-            index=len(events)))
+            index=len(events), event_type="(end of stream)"))
     return result

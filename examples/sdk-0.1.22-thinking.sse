@@ -1,0 +1,20 @@
+data: {"type":"RUN_STARTED","threadId":"t1","runId":"r1"}
+
+data: {"type":"THINKING_START","title":"Planning"}
+
+data: {"type":"THINKING_TEXT_MESSAGE_START"}
+
+data: {"type":"THINKING_TEXT_MESSAGE_CONTENT","delta":"The user wants a short answer."}
+
+data: {"type":"THINKING_TEXT_MESSAGE_END"}
+
+data: {"type":"THINKING_END"}
+
+data: {"type":"TEXT_MESSAGE_START","messageId":"m1","role":"assistant"}
+
+data: {"type":"TEXT_MESSAGE_CONTENT","messageId":"m1","delta":"Here it is."}
+
+data: {"type":"TEXT_MESSAGE_END","messageId":"m1"}
+
+data: {"type":"RUN_FINISHED","threadId":"t1","runId":"r1"}
+
